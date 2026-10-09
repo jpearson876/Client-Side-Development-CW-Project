@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Belfast Bean Co. - Home</title>
+    <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
+    <link rel="icon" href="images/favicon.webp" type="image/webp">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- I wrapped the navbar inside a header element for accessibility, and to make styling easier later -->
+    <header>
+        <!-- I placed the navbar outside of the main tag -->
+        <nav class="navbar">
+            <!-- I split the navbar into three sections using uls and divs -->
+            <ul class="leftNav">
+                 <!-- I don't give these elements a class as I want them to always stay visible-->
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+
+            <div class="logo">
+                <img src="images/belfastbeanfinal.webp" class="logoImg" alt="Logo">
+            </div>
+
+            <ul class="rightNav">
+                <!-- I give the elements below the loggedOut class so I can easily toggle their visibility -->
+                <li class="loggedOut"><a href="register.html">Become a Member!</a></li>
+                <li class="loggedOut"><a href="login.html">Login</a></li>
+
+                <!-- Like above, these elements have a LoggedIn class so they can also be toggled -->
+                <li class="loggedIn"><span id="welcomeMessage">Welcome!</span></li>
+                <li class="loggedIn"><button id="logOutButton">Log Out?</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--I used the main tag to wrap the main content of the page for
+    readibality and accessibility purposes -->
+    <main>
+        <div class="logOutMessage">
+
+            <!-- I use a span with the aria-live attribute for accessibility,
+            when the user hits the logout button, this message will be shown using jQuery-->
+            <span id="logoutMessage" aria-live="polite">You have been successfully logged out!</span>
+        </div>
+
+        <h1>Welcome the Belfast Bean Co.!</h1>
+        <p>Here you will be able to find out more about our coffee, location, and how to contact us.</p>
+
+        <!-- Buttons that display the content on clicking-->
+        <section class="infoBtns">
+            <button class="infoButton" value="#viewCoffee">View our coffee</button>
+            <button class="infoButton" value="#location">Where To Find Us</button>
+            <button class="infoButton" value="#contactUs">Contact Us</button>
+        </section>
+
+        <!-- Information about the business-->
+        <section class="information" id="viewCoffee">
+            <h2>View our coffee:</h2>
+            <p>Our business runs consistently throughout weeks and months with hard working staff that will treat you with your care.
+                Our aim in the business is to create a relaxing atmosphere in our business and allow you, our customers to be refreshed with the coffee we will serve to you.
+                <br><br>
+                Our coffee is one of the highest qualities so if you're feeling if you need a drink to start your day this coffee will be your best option to start the day the right way.
+                As you can see this is our website so you can see all the information you need to know about our business.
+                <br><br>
+                If you find it intriguing come to our local coffee shop and enjoy your stay and we always welcome new and frequent customers with a kind heart.
+                If you enjoy our services and like our coffee feel free to keep joining us and hopefully, we will get to know all of you better with your stay.</p>
+            
+            <div class="gallery">
+                <img src="images/coffeeCup.webp" alt="Coffee cup ontop coffee beans">
+                <img src="images/coffeeBeans.webp" alt="Coffee beans">
+                <img src="images/coffeeCup2.webp" alt="Coffee cup ontop a table">
+            </div>
+        </section>
+
+        <!-- Information about the location of the business-->
+        <section class="information" id="location">
+            <h2>Where to find us:</h2>
+            <p>Our branch is located at 15 Woodlane, High street Market, Belfast</p>
+
+            <!-- I used the GM Platform to get this map embed, I used Ulster Uni's Belfast site for the location since our address doesn't actually exist-->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2310.9638136672297!2d-5.929104899999999!3d54.6046301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4861084ca01b3ccd%3A0xf36a06a9666eabcc!2sUlster%20University!5e0!3m2!1sen!2suk!4v1775658567785!5m2!1sen!2suk"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+
+        <!-- Contact information -->
+        <section class="information" id="contactUs">
+            <h2>Contact Us:</h2>
+            <p>If you have any questions or concerns, or just want to get it touch, you can contact us via email or by phone!</p>
+            
+            <!-- I used a mailto link just for a better user experience, we do not actually own this address-->
+            <p>Email: <a href="mailto:belfastbean.co@gmail.com">belfastbean.co@gmail.com</a>
+            <br><br>
+            <!-- We also do not own this phone number -->
+            Phone: 028 1234 5678</p>
+        </section>
+    </main>
+
+    <!-- I wrapped the footer within the footer tag for accessibility purposes -->
+    <footer>
+        <p class="footerCopy">&copy; 2026 Group 30.</p>
+
+        <div class="imgSrcs">
+            <a href="https://www.flaticon.com/free-icons/coffee" title="coffee icons">Coffee icons created by Freepik -
+                Flaticon</a>
+        </div>
+
+        <ul class="footerLinks">
+            <li><a href="#top">Go back to top?</a></li>
+        </ul>
+    </footer>
+
+    <!-- The scripts are at the bottom of the body so that the content of the page
+    is loaded before the scripts are executed -->
+    <script src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous">
+        </script>
+    <script src="js/scripts.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+
+</html>
