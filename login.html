@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Belfast Bean Co. - Login</title>
+    <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
+    <link rel="icon" href="images/favicon.webp" type="image/webp">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Again, navbar is inside a header element -->
+    <header>
+        <nav class="navbar">
+            
+            <ul class="leftNav">
+                <li><a href="index.html">Home</a></li> <!-- I don't give these elements a class as I want them to always stay visible-->
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+
+            <div class="logo">
+                <img src="images/belfastbeanfinal.webp" class="logoImg" alt="Logo">
+            </div>
+
+            <ul class="rightNav">
+                <!-- I give the elements below the loggedOut class so I can easily toggle their visibility -->
+                <li class="loggedOut"><a href="register.html">Become a Member!</a></li>
+                <li class="loggedOut"><a href="login.html" class="active">Login</a></li>
+
+                <!-- Like above, these elements have a LoggedIn class so they can also be toggled -->
+                <li class="loggedIn"><span id="welcomeMessage">Welcome!</span></li>
+                <li class="loggedIn"><button id="logOutButton">Log Out?</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="logOutMessage">
+
+            <!-- I use a span with the aria-live attribute for accessibility,
+            when the user hits the logout button, this message will be shown using jQuery-->
+            <span id="logoutMessage" aria-live="polite">You have been successfully logged out!</span>
+        </div>
+
+        <h1>Login</h1>
+        <p>Please enter your email and password to log in.</p>
+
+        <form class="form" id="loginForm" novalidate>
+            <div>
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" name="loginEmail" autocomplete="email" required>
+                <span class="errorMessage" id="loginEmailError" aria-live="polite"></span>
+            </div>
+
+            <div>
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" name="loginPassword" autocomplete="current-password" required>
+                <span class="errorMessage" id="loginPasswordError" aria-live="polite"></span>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="successMessage">
+            <span id="loginSuccess" aria-live="polite"></span>
+            <button id="loginRedirect">Go To The Home Page?</button>
+        </div>
+
+        <p>If you don't have an account, <a class="registerLink" href="register.html">register here</a>!</p>
+    </main>
+
+    <!-- Again, the footer is wrapped in a footer element -->
+    <footer>
+        <p class="footerCopy">&copy; 2026 Group 30.</p>
+
+        <div class="imgSrcs">
+            <a href="https://www.flaticon.com/free-icons/coffee" title="coffee icons">Coffee icons created by Freepik - Flaticon</a>
+        </div>
+
+        <ul class="footerLinks">
+            <li><a href="#top">Go back to top?</a></li>
+        </ul>
+    </footer>
+
+    <script
+        src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U="
+        crossorigin="anonymous">
+    </script>
+    <script src="js/scripts.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/validation.js"></script>
+</body>
+</html>
