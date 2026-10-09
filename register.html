@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Belfast Bean Co. - Register</title>
+    <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
+    <link rel="icon" href="images/favicon.webp" type="image/webp">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Navbar is wrapped in a header element for screen reader support -->
+    <header>
+        <!-- Like the index page, I place the navbar outside of the main element for accessibility purposes -->
+        <nav class="navbar">
+            
+            <ul class="leftNav">
+                <li><a href="index.html">Home</a></li> <!-- I don't give these elements a class as I want them to always stay visible-->
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+
+            <div class="logo">
+                <img src="images/belfastbeanfinal.webp" class="logoImg" alt="Logo">
+            </div>
+
+            <ul class="rightNav">
+                <!-- I give the elements below the loggedOut class so I can easily toggle their visibility -->
+                <li class="loggedOut"><a href="register.html" class="active">Become a Member!</a></li>
+                <li class="loggedOut"><a href="login.html">Login</a></li>
+
+                <!-- Like above, these elements have a LoggedIn class so they can also be toggled -->
+                <li class="loggedIn"><span id="welcomeMessage">Welcome!</span></li>
+                <li class="loggedIn"><button id="logOutButton">Log Out?</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Again, I wrap the main content of the page in a main element -->
+    <main>
+        <div class="logOutMessage">
+
+            <!-- I use a span with the aria-live attribute for accessibility,
+            when the user hits the logout button, this message will be shown using jQuery-->
+            <span id="logoutMessage" aria-live="polite">You have been successfully logged out!</span>
+        </div>
+
+        <h1>Become a member:</h1>
+        <p>Please fill out the form below to create an account.</p>
+        <p>All fields marked with an asterisk <span class="required">*</span> are required.</p>
+
+        <!-- I use the novalidate attribute to stop the browser from auto validating
+        the form, so that I can handle validation manually with JavaScript-->
+        <form class="form" id="registrationForm" novalidate>
+
+            <!-- I wrap each form element in a div for styling purposes -->
+            <div>
+                <label for="fullName">Name <span class="required">*</span>:</label>
+                <input type="text" id="fullName" name="fullName" required> <!-- Even though I used novalidate, I still use required for accessibility purposes -->
+                <span class="errorMessage" id="nameError" aria-live="polite"></span>  <!-- This span is used to inject an error message if an error occurs, and I use aria-live so that screen readers announce the error -->
+            </div>
+
+            <div>
+                <label for="email">Email <span class="required">*</span>:</label>
+                <input type="email" id="email" name="email" autocomplete="email" required> <!-- I use the autocomplete attribute to prevent the browser from auto suggesting saved emails and passwords -->
+                <span class="errorMessage" id="emailError" aria-live="polite"></span>
+            </div>
+
+            <div>
+                <label for="password">Password <span class="required">*</span>:</label>
+                <input type="password" id="password" name="password" autocomplete="new-password" required>
+                <span class="errorMessage" id="passwordError" aria-live="polite"></span>
+            </div>
+
+            <div>
+                <label for="confirmPassword">Confirm Password <span class="required">*</span>:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="new-password" required>
+                <span class="errorMessage" id="confirmPassError" aria-live="polite"></span>
+            </div>
+
+            <div>
+                <label for="age">Age <span class="required">*</span>:</label>
+                <input type="number" id="age" name="age" required>
+                <span class="errorMessage" id="ageError" aria-live="polite"></span>            </div>
+            
+
+            <!-- I decided to use the select element for the country selection as it simplifies the experience for the user -->
+            <div>
+                <label for="country">Country <span class="required">*</span>:</label>
+                <select id="country" name="country" required>
+                    <option value="">Select your country</option>
+                    <option value="usa">United States</option>
+                    <option value="canada">Canada</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="australia">Australia</option>
+                    <option value="other">Other</option>
+                </select>
+                <span class="errorMessage" id="countryError" aria-live="polite"></span>
+            </div>
+            
+            <button type="submit">Submit</button>
+
+            <!-- Like the error messages, I use a span with the aria-live attribute to announce success-->
+            <div class="successMessage" aria-live="polite">
+                <span id="regSuccess"></span>
+                <button id="loginRedirect">Log In?</button>
+            </div>
+        </form>
+    </main>
+
+    <!-- I wrapped the footer in a footer element for screen reader support -->
+     <footer>
+        <p class="footerCopy">&copy; 2026 Group 30.</p>
+
+        <div class="imgSrcs">
+            <a href="https://www.flaticon.com/free-icons/coffee" title="coffee icons">Coffee icons created by Freepik - Flaticon</a>
+        </div>
+
+        <ul class="footerLinks">
+            <li><a href="#top">Go back to top?</a></li>
+        </ul>
+    </footer>
+
+    <!-- Like the index page, the scripts and jQuery are at the bottom of the page to ensure all elements are loaded first,
+    I also load the validation.js script for form validation -->
+    <script
+        src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U="
+        crossorigin="anonymous">
+    </script>
+    <script src="js/scripts.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/validation.js"></script>
+</body>
+</html>
